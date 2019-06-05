@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body style="background-image: url(images/bg.jpg);">
+<div style="background: white;">
+	<span>Enemy:</span>
+	<span class="div_enemy_points"></span>
+</div>
+<div style="background: white;">
+	<span>Player:</span>
+	<span class="div_player_points"></span>
+</div>
+<div class="enemy" style="height: 400px;"></div>
+<div class="player" style="height: 400px;"></div>
+<script type="text/javascript">
+	let getRandom =function(){
+		return(Math.round(Math.random()*4));
+	}
+	let NumberCard =function(){
+		return(Math.round(Math.random()*10));
+	}
+let card = [{point:24},{point:1},{point:4},{point:4},{point:1},{point:7},{point:5},{point:5},{point:7},{point:4},{point:4}]
+let pointEnemy=0;
+let pointPlayer=0;
+
+let createEnemyCard=function(arg){
+		for(let i = 0; i<arg; i = i + 1){
+	let newImg = document.createElement("img");
+	document.querySelector(".enemy").appendChild(newImg);
+	newImg.style.height ="200px";
+	let number=NumberCard();
+	newImg.src ="images/"+number+".png";
+	pointEnemy=pointEnemy+card[number].point;
+	document.querySelector(".div_enemy_points").innerHTML = pointEnemy;
+	}
+}
+
+let createPlayerCard=function(arg){
+		for(let i = 0; i<arg; i = i + 1){
+	let newImg = document.createElement("img");
+	document.querySelector(".player").appendChild(newImg);
+	newImg.style.height ="200px";
+	let number=NumberCard();
+	newImg.src ="images/"+number+".png";
+	pointPlayer=pointPlayer+card[number].point;
+	document.querySelector(".div_player_points").innerHTML = pointPlayer;
+	}
+}
+
+</script>
+
+</body>
+</html>
